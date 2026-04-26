@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme variables (RGB triplets — required for Tailwind opacity modifiers) ── */
+:root {
+  /* Light mode */
+  --bg-base:      241 245 249;   /* #f1f5f9 */
+  --bg-surface:   255 255 255;   /* #ffffff */
+  --bg-subtle:    248 250 252;   /* #f8fafc */
+  --border-color: 226 232 240;   /* #e2e8f0 */
+  --text-primary: 15 23 42;      /* #0f172a */
+  --text-muted:   100 116 139;   /* #64748b */
+  --accent-green: 5 150 105;     /* #059669 */
+  --accent-blue:  2 132 199;     /* #0284c7 */
+  --accent-amber: 217 119 6;     /* #d97706 */
+  --accent-red:   220 38 38;     /* #dc2626 */
+
+  /* Hex aliases for SVG attributes and inline styles */
+  --hex-bg-base:      #f1f5f9;
+  --hex-bg-surface:   #ffffff;
+  --hex-border:       #e2e8f0;
+  --hex-text-muted:   #64748b;
+  --hex-accent-green: #059669;
+  --hex-accent-blue:  #0284c7;
+  --hex-accent-amber: #d97706;
+  --hex-accent-red:   #dc2626;
+}
+
+.dark {
+  --bg-base:      10 15 26;      /* #0a0f1a */
+  --bg-surface:   17 24 39;      /* #111827 */
+  --bg-subtle:    26 34 51;      /* #1a2233 */
+  --border-color: 30 45 69;      /* #1e2d45 */
+  --text-primary: 226 232 240;   /* #e2e8f0 */
+  --text-muted:   100 116 139;   /* #64748b */
+  --accent-green: 0 200 150;     /* #00c896 */
+  --accent-blue:  14 165 233;    /* #0ea5e9 */
+  --accent-amber: 245 158 11;    /* #f59e0b */
+  --accent-red:   239 68 68;     /* #ef4444 */
+
+  --hex-bg-base:      #0a0f1a;
+  --hex-bg-surface:   #111827;
+  --hex-border:       #1e2d45;
+  --hex-text-muted:   #64748b;
+  --hex-accent-green: #00c896;
+  --hex-accent-blue:  #0ea5e9;
+  --hex-accent-amber: #f59e0b;
+  --hex-accent-red:   #ef4444;
+}
+
+@layer base {
+  html {
+    transition: background-color 0.2s ease;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--hex-border) var(--hex-bg-base);
+  }
+  *::-webkit-scrollbar { width: 4px; height: 4px; }
+  *::-webkit-scrollbar-track { background: var(--hex-bg-base); }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--hex-border);
+    border-radius: 4px;
+  }
+
+  body {
+    background-color: rgb(var(--bg-base));
+    color: rgb(var(--text-primary));
+    font-family: 'Sora', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.15s ease;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Dark mode glows */
+  .dark .glow-green  { box-shadow: 0 0 14px rgba(0, 200, 150, 0.2); }
+  .dark .glow-blue   { box-shadow: 0 0 14px rgba(14, 165, 233, 0.2); }
+  .dark .glow-red    { box-shadow: 0 0 14px rgba(239, 68, 68, 0.25); }
+  .dark .glow-amber  { box-shadow: 0 0 14px rgba(245, 158, 11, 0.2); }
+
+  /* Light mode glows → soft elevation instead */
+  .glow-green  { box-shadow: 0 2px 12px rgba(5, 150, 105, 0.12); }
+  .glow-blue   { box-shadow: 0 2px 12px rgba(2, 132, 199, 0.12); }
+  .glow-red    { box-shadow: 0 2px 12px rgba(220, 38, 38, 0.12); }
+  .glow-amber  { box-shadow: 0 2px 12px rgba(217, 119, 6, 0.12); }
+
+  .card-hover {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .card-hover:hover { transform: scale(1.005); }
+
+  /* Smooth color transitions on interactive elements */
+  .transition-theme {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+  }
+}
+
+@keyframes ambPin {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-3px); }
+}
+@keyframes pingRing {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes shakeBadge {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+.amb-pin-anim { animation: ambPin 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.ping-ring    { animation: pingRing 1.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+.shake-in     { animation: shakeBadge 0.5s ease-in-out 0.3s both; }
