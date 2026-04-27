@@ -29,7 +29,7 @@ export default {
       },
       fontFamily: {
         mono: ['"DM Mono"', 'monospace'],
-        sans: ['"Sora"', 'sans-serif'],
+        sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
       },
       animation: {
         'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

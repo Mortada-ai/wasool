@@ -30,25 +30,25 @@ export default function Topbar() {
   });
 
   return (
-    <header className="fixed top-0 left-[200px] right-0 h-12 bg-bg-surface/90 backdrop-blur-md border-b border-border z-20 flex items-center px-6 transition-theme">
+    <header className="fixed top-0 left-[200px] right-0 h-12 bg-bg-surface/95 backdrop-blur-md border-b border-border z-20 flex items-center px-6 transition-theme">
       <motion.h1
         key={title}
-        initial={{ opacity: 0, y: -8 }}
+        initial={{ opacity: 0, y: -6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-        className="text-sm font-semibold text-text-primary font-sans flex-1"
+        transition={{ duration: 0.15, ease: 'easeOut' }}
+        className="text-sm font-bold text-text-primary flex-1 tracking-tight"
       >
         {title}
       </motion.h1>
 
       <div className="flex items-center gap-3">
-        {/* Live indicator */}
-        <div className="flex items-center gap-2">
+        {/* Live indicator — Active Green = online/connected */}
+        <div className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-60" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-50" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green" />
           </span>
-          <span className="text-xs font-sans text-accent-green font-medium">Live</span>
+          <span className="text-xs font-bold text-accent-green tracking-wide">LIVE</span>
         </div>
 
         {/* Clock */}
@@ -59,7 +59,7 @@ export default function Topbar() {
           onClick={toggle}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="relative p-1.5 rounded-lg hover:bg-bg-subtle transition-colors overflow-hidden"
+          className="relative p-1.5 rounded-md hover:bg-bg-subtle transition-colors overflow-hidden"
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -68,7 +68,7 @@ export default function Topbar() {
               initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
               animate={{ rotate: 0,   opacity: 1, scale: 1 }}
               exit={{   rotate:  90,  opacity: 0, scale: 0.6 }}
-              transition={{ duration: 0.18, ease: 'easeOut' }}
+              transition={{ duration: 0.15, ease: 'easeOut' }}
             >
               {isDark
                 ? <Sun  size={15} className="text-text-muted" />
@@ -79,7 +79,7 @@ export default function Topbar() {
         </motion.button>
 
         {/* Bell */}
-        <button className="relative p-1.5 rounded-lg hover:bg-bg-subtle transition-colors">
+        <button className="relative p-1.5 rounded-md hover:bg-bg-subtle transition-colors">
           <Bell size={15} className="text-text-muted" />
           <span className="absolute top-0.5 right-0.5 w-2 h-2 bg-accent-red rounded-full border-2 border-bg-surface" />
         </button>

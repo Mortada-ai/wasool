@@ -48,18 +48,18 @@ export function useChartTheme() {
   return {
     tooltip: {
       contentStyle: {
-        backgroundColor: isDark ? '#111827' : '#ffffff',
-        border: `1px solid ${isDark ? '#1e2d45' : '#e2e8f0'}`,
-        borderRadius: 8,
+        backgroundColor: isDark ? '#181818' : '#ffffff',
+        border: `1px solid ${isDark ? '#2a2a2a' : '#e8e8e8'}`,
+        borderRadius: 4,
         fontSize: 11,
         fontFamily: 'DM Mono',
-        color: isDark ? '#e2e8f0' : '#0f172a',
+        color: isDark ? '#f7f7f7' : '#0d0d0d',
       },
-      cursor: { fill: isDark ? 'rgba(30,45,69,0.4)' : 'rgba(226,232,240,0.5)' },
+      cursor: { fill: isDark ? 'rgba(46,46,46,0.5)' : 'rgba(232,232,232,0.5)' },
     },
-    grid:      isDark ? '#1e2d45' : '#e2e8f0',
-    tick:      isDark ? '#64748b' : '#94a3b8',
-    barInactive: isDark ? '#1e2d45' : '#e2e8f0',
+    grid:        isDark ? '#2a2a2a' : '#e8e8e8',
+    tick:        isDark ? '#767676' : '#767676',
+    barInactive: isDark ? '#2a2a2a' : '#e8e8e8',
   };
 }
 
@@ -67,19 +67,19 @@ export function useChartTheme() {
 export function useSvgColors() {
   const { isDark } = useTheme();
   return {
-    bgBase:      isDark ? '#0a0f1a'  : '#f1f5f9',
-    bgSurface:   isDark ? '#111827'  : '#ffffff',
-    border:      isDark ? '#1e2d45'  : '#e2e8f0',
-    borderSubtle:isDark ? '#172032'  : '#f1f5f9',
-    textMuted:   isDark ? '#64748b'  : '#94a3b8',
-    textFaint:   isDark ? '#2a3f5f'  : '#cbd5e1',
-    roadMajor:   isDark ? '#1e2d45'  : '#cbd5e1',
-    roadMinor:   isDark ? '#172032'  : '#e2e8f0',
-    gridLine:    isDark ? 'rgba(30,45,69,0.3)' : 'rgba(203,213,225,0.5)',
-    rowEven:     isDark ? 'rgba(10,15,26,0.5)' : 'rgba(241,245,249,0.7)',
-    rowOdd:      isDark ? 'rgba(17,24,39,0.3)' : 'rgba(248,250,252,0.4)',
-    nowLine:     isDark ? '#f59e0b'  : '#d97706',
-    nowBadgeBg:  isDark ? '#f59e0b'  : '#d97706',
-    nowBadgeText:isDark ? '#0a0f1a'  : '#ffffff',
+    bgBase:       isDark ? '#0d0d0d'  : '#f7f7f7',
+    bgSurface:    isDark ? '#181818'  : '#ffffff',
+    border:       isDark ? '#2a2a2a'  : '#e8e8e8',
+    borderSubtle: isDark ? '#222222'  : '#fef5f6',
+    textMuted:    isDark ? '#767676'  : '#767676',
+    textFaint:    isDark ? '#3a3a3a'  : '#d4d4d4',
+    roadMajor:    isDark ? '#2a2a2a'  : '#d4d4d4',
+    roadMinor:    isDark ? '#1e1e1e'  : '#e8e8e8',
+    gridLine:     isDark ? 'rgba(42,42,42,0.4)' : 'rgba(232,232,232,0.6)',
+    rowEven:      isDark ? 'rgba(13,13,13,0.5)'  : 'rgba(247,247,247,0.7)',
+    rowOdd:       isDark ? 'rgba(24,24,24,0.3)'  : 'rgba(254,245,246,0.4)',
+    nowLine:      isDark ? '#f59e0b'  : '#f59e0b',
+    nowBadgeBg:   isDark ? '#f59e0b'  : '#f59e0b',
+    nowBadgeText: isDark ? '#0d0d0d'  : '#ffffff',
   };
 }

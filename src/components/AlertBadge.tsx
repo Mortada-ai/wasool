@@ -22,7 +22,7 @@ export default function AlertBadge({ alert, index = 0 }: Props) {
       initial={{ opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: index * 0.08 }}
-      className={`flex gap-3 items-start p-3 rounded-lg border ${cfg.bg} ${cfg.border} ${index === 0 ? 'shake-in' : ''}`}
+      className={`flex gap-3 items-start p-3 rounded-md border ${cfg.bg} ${cfg.border} ${index === 0 ? 'shake-in' : ''}`}
     >
       <Icon size={15} className={`${cfg.color} mt-0.5 flex-shrink-0`} />
       <div className="flex-1 min-w-0">

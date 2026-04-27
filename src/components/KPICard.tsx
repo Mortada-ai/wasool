@@ -26,16 +26,16 @@ export default function KPICard({ label, value, sub, icon, accent = 'muted', ind
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.07 }}
-      className={`bg-bg-surface border ${a.border} rounded-xl p-4 card-hover cursor-default relative overflow-hidden group`}
+      className={`bg-bg-surface border ${a.border} rounded-lg p-4 card-hover cursor-default relative overflow-hidden group`}
     >
       <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${a.glow}`} />
       <div className="flex items-start justify-between mb-3">
-        <span className="text-xs text-text-muted font-sans uppercase tracking-widest">{label}</span>
-        <div className={`p-1.5 rounded-lg ${a.badge}`}>
+        <span className="text-xs text-text-muted font-bold uppercase tracking-widest">{label}</span>
+        <div className={`p-1.5 rounded-md ${a.badge}`}>
           <span className={`${a.icon} block`} style={{ width: 16, height: 16 }}>{icon}</span>
         </div>
       </div>
-      <div className="font-mono text-3xl font-medium text-text-primary leading-none mb-1">{value}</div>
+      <div className="font-sans text-3xl font-bold text-text-primary leading-none mb-1">{value}</div>
       {sub && <div className="text-xs text-text-muted font-sans mt-1">{sub}</div>}
     </motion.div>
   );
